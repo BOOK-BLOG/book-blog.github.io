@@ -43,12 +43,7 @@ function createMarker(icon, x, y, title, address, source, name, telephone, type)
         position: marker.getPosition()
       })
     });
-    $("button[open-in=\"apple-map-a\"]").click(function() {
-      window.open("https://maps.apple.com/?q=" + address);
-      // window.location.href = "https://maps.apple.com/?q=" + address;
-    });
-    $("button[open-in=\"apple-map-b\"]").click(function() {
-      // window.open("https://maps.apple.com/?q=" + address);
+    $("button[open-in=\"apple-map\"]").click(function() {
       window.location.href = "https://maps.apple.com/?q=" + address;
     });
     setTimeout(function() {
@@ -69,20 +64,15 @@ var marker = {
 
 $(".list-up-down").click(function() {
   if ($(this).attr("up-down") == "up") {
-    $(".controls").attr("up-height", $(".controls").height());
-    $(".controls").height($(".controls").height());
-    $(".controls").height(32);
-    $(this).attr("up-down", "down");
-    $(this).removeClass("list-down");
     $(this).addClass("list-up");
+    $(this).removeClass("list-down");
+    $(this).attr("up-down", "down");
+    $(".controls").addClass("down");
   } else {
-    $(".controls").height($(".controls").attr("up-height"));
-    $(this).attr("up-down", "up");
     $(this).removeClass("list-up");
     $(this).addClass("list-down");
-    setTimeout(function() {
-      $(".controls").attr("style", "");
-    }, 350)
+    $(this).attr("up-down", "up");
+    $(".controls").removeClass("down");
   }
 })
 
@@ -90,6 +80,17 @@ $("#hospital-length").html(marker.hospital.marker["length"]);
 
 $(".refresh").click(function() {
   location.reload();
+})
+
+$(".change-source").click(function() {
+  var hrefer;
+  if (window.location.href.search("sdevxd.github.io") != -1) {
+    hrefer = "https://book-blog.github.io/7th/";
+  } else if (window.location.href.search("book-blog.github.io") != -1) {
+    hrefer = "http://kt7yvd.coding-pages.com/7th/";
+  } else if (window.location.href.search("kt7yvd.coding-pages.com") != -1) {
+    hrefer = "https://book-blog.github.io/7th/";
+  }
 })
 
 // amap

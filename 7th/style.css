@@ -37,6 +37,12 @@ html, body, #map, #container {
   -webkit-backdrop-filter: blur(8px);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   transition: all 0.35s;
+  z-index: 200;
+  /* Amap's logo & copyright 's z-index = 160 */
+}
+
+.controls.down {
+  transform: translate(0, 100%);
 }
 
 .list {
@@ -86,6 +92,32 @@ html, body, #map, #container {
 .list-item h6 {
   font-size: 1rem;
   font-weight: 700;
+}
+
+.primary-button {
+  height: 28px;
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-txt);
+  font-weight: 700;
+  padding: 4px 8px;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  outline: none;
+  margin-bottom: 4px;
+  transition: all 0.15s;
+}
+
+.primary-button:hover {
+  background-color: var(--button-primary-bg-hover);
+}
+
+.primary-button:active {
+  background-color: var(--button-primary-bg-active);
+}
+
+.primary-button:focus {
+  outline: none;
 }
 
 .list-item.description, .list-item.description:hover, .list-item.description:active {
@@ -153,8 +185,6 @@ html, body, #map, #container {
   border-radius: 8px;
   background-color: var(--controls-bg);
   backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   transition: all 0.35s;
