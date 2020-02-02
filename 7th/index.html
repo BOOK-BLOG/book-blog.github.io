@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title id="title-head">7th 2019-nCoV</title>
+  <!-- PWA -->
+  <meta name="description" content="2019-nCoV 疫情情况一览。">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="apple-touch-icon" href="./img/logo-apple-touch.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#ffffff">
+  <!-- <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> -->
+  <meta name="apple-mobile-web-app-title" content="BOOK-BLOG">
+  <meta name="msapplication-TileImage" content="./img/msapp-tile.png">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <link rel="manifest" href="index.webmanifest">
+  <link rel="manifest" href="manifest.json">
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <!-- icon -->
+  <link rel="icon" href="logo.png" type="image/x-icon" />
+  <!-- style -->
+  <link rel="stylesheet" href="./style.css">
+  <!-- =========/      //     //      -->
+  <!--        //  ====//==== //       -->
+  <!--       //      //     //        -->
+  <!--      //      //     //======// -->
+  <!--     //      //     //      //  -->
+  <!--    //      //     //      //   -->
+  <!--   //      //     //      //    -->
+</head>
+
+<body>
+  <div id="map"></div>
+  <div class="controls hide">
+    <ul class="list">
+      <li class="list-item list-down list-up-down" up-down="up"></li>
+      <li class="list-item" type="hospital">
+        <div bg-icon="hospital"></div>
+        <h6>接受捐赠的医院</h6>
+        <p>共有 <b id="hospital-length">未知</b> 家医院接受来自社会的捐赠。</p>
+      </li>
+      <!-- <li class="list-item" type="protect">
+        <div bg-icon="protect"></div>
+        <h6>仍有口罩售卖的商店</h6>
+        <p>共有 <span id="protect-length">未知</span> 家商店仍有医用外科或 N95 口罩售卖。</p>
+      </li> -->
+      <li class="list-item description">
+        <div bg-icon="bug"></div>
+        <h6>发现问题</h6>
+        <p>若在本站发现漏洞或问题，请联系 <a href="mailto:book-blog@protonmail.com">book-blog@protonmail.com</a></p>
+      </li>
+      <li class="list-item description info">
+        <p>数据更新于: 2020 年 2 月 1 日。</p>
+        <p>地图供应商：<a href="http://gaode.com" target="_blank"><img src="https://webapi.amap.com/theme/v1.3/logo@2x.png" alt="高德地图" style="width: 73px; height: 20px"></a></p>
+        <button class="refresh">刷新数据</button>
+      </li>
+    </ul>
+  </div>
+  <div class="detail hide">
+    <div bg-icon="hospital"></div>
+    <h3 info="title"></h3>
+    <p>地址：<span class="selectable" info="address"></span></p>
+    <p>联系方式：<span info="name"></span>&nbsp;<a href="" info="telephone"></a></p>
+    <p>数据来源：<a href="" target="_blank" info="source"></a></p>
+    <button class="open-in" open-in="amap">在 <img src="https://webapi.amap.com/theme/v1.3/logo@2x.png" alt="高德地图"> 中打开</button>
+    <button class="open-in" open-in="apple-map-a">在 Apple 地图中打开（window.open()）</button>
+    <button class="open-in" open-in="apple-map-b">在 Apple 地图中打开（window.location.href）</button>
+  </div>
+  <div class="pill"><b>Beta</b></div>
+  <script type="text/javascript">
+  </script>
+  <script src="https://webapi.amap.com/maps?v=1.4.15&key=f84b41b374f730eae570e4d1336033cb"></script>
+  <script src="./script.js"></script>
+</body>
+
+</html>

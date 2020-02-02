@@ -1,0 +1,304 @@
+/* overview */
+html, body, #map, #container {
+  width: 100%;
+  height: 100%;
+}
+
+* {
+  user-select: none;
+  color: var(--controls-txt)
+}
+
+.selectable {
+  user-select: all;
+}
+
+.amap-icon img {
+  width: 48px;
+  transition: all 0.15s;
+}
+
+.amap-icon img:hover {
+  width: 50px;
+  transform: translate(-1px, -2px);
+}
+
+.amap-icon img.active {
+  width: 64px;
+  transform: translate(-8px, -19px);
+  filter: drop-shadow(0 -4px 4px rgba(0, 0, 0, 0.1));
+}
+
+.controls {
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: var(--controls-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.35s;
+}
+
+.list {
+  padding: 0;
+  list-style: none;
+  margin: 0;
+}
+
+.list-item {
+  align-items: center;
+  padding: 8px;
+  transition: all 0.15s;
+}
+
+.list-item:hover {
+  background-color: var(--controls-bg-hover);
+}
+
+.list-item:active {
+  background-color: var(--controls-bg-active);
+}
+
+.list-item.active {
+  background-color: var(--controls-bg-hover);
+}
+
+.list-item * {
+  margin-bottom: 8px;
+}
+
+.list-item.list-down {
+  height: 32px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: var(--down-icon);
+  background-size: 40px;
+}
+
+.list-item.list-up {
+  height: 32px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: var(--up-icon);
+  background-size: 40px;
+}
+
+.list-item h6 {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.list-item.description, .list-item.description:hover, .list-item.description:active {
+  background-color: transparent;
+}
+
+.list-item.info p {
+  font-size: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.refresh {
+  height: 28px;
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-txt);
+  font-weight: 700;
+  padding: 4px 8px;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  outline: none;
+  margin-bottom: 4px;
+  transition: all 0.15s;
+}
+
+.refresh:hover {
+  background-color: var(--button-primary-bg-hover);
+}
+
+.refresh:active {
+  background-color: var(--button-primary-bg-active);
+}
+
+.refresh:focus {
+  outline: none;
+}
+
+[bg-icon] {
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 60%;
+}
+
+[bg-icon="hospital"] {
+  background-color: #e60000;
+  background-image: url(./icon/hospital.svg);
+}
+
+[bg-icon="protect"] {
+  background-color: #00e000;
+  background-image: url(./icon/protect.svg);
+}
+
+[bg-icon="bug"] {
+  background-color: #6400b7;
+  background-image: url(./icon/bug.svg);
+}
+
+.detail {
+  padding: 8px;
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: var(--controls-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.35s;
+}
+
+.detail.hide {
+  transform: translate(0, calc(100% + 52px));
+}
+
+.detail [bg-icon="hospital"] {
+  margin-bottom: 8px;
+}
+
+.detail h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.detail p {
+  font-size: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.open-in {
+  height: 28px;
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-txt);
+  font-weight: 700;
+  padding: 4px 8px;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  outline: none;
+  margin-bottom: 4px;
+  transition: all 0.15s;
+}
+
+.open-in:hover {
+  background-color: var(--button-primary-bg-hover);
+}
+
+.open-in:active {
+  background-color: var(--button-primary-bg-active);
+}
+
+.open-in:focus {
+  outline: none;
+}
+
+.open-in img {
+  height: 18px;
+}
+
+.pill {
+  text-align: right;
+  max-width: calc(100% - 16px);
+  padding: 2px 4px;
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: var(--controls-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.25s;
+  position: fixed;
+  right: 8px;
+  top: 8px;
+}
+
+.pill * {
+  font-size: 0.75rem;
+  margin: 0;
+}
+
+/* :root */
+:root {
+  --controls-bg: rgba(255, 255, 255, 0.8);
+  --controls-bg-hover: rgba(0, 0, 0, 0.05);
+  --controls-bg-active: rgba(0, 0, 0, 0.1);
+  --controls-txt: #000000;
+  --button-primary-bg: #bfe4ff;
+  --button-primary-bg-hover: #5ebbff;
+  --button-primary-bg-active: #57a2da;
+  --button-primary-txt: #0066b1;
+  --down-icon: url("./icon/chevron-compact-down-dark.svg");
+  --up-icon: url("./icon/chevron-compact-up-dark.svg");
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --controls-bg: rgba(0, 0, 0, 0.8);
+    --controls-bg-hover: rgba(255, 255, 255, 0.05);
+    --controls-bg-active: rgba(255, 255, 255, 0.1);
+    --controls-txt: #efefef;
+    --button-primary-bg: #005089;
+    --button-primary-bg-hover: #0061a6;
+    --button-primary-bg-active: #002743;
+    --button-primary-txt: #0093ff;
+    --down-icon: url("./icon/chevron-compact-down-light.svg");
+    --up-icon: url("./icon/chevron-compact-up-light.svg");
+  }
+}
+
+/* for screen width < 700px */
+.controls {
+  width: calc(100% - 16px);
+  height: max-content;
+  position: fixed;
+  left: 8px;
+  bottom: 32px;
+}
+
+.controls.hide {
+  transform: translate(0, calc(100% + 52px));
+}
+
+.detail {
+  width: calc(100% - 16px);
+  height: max-content;
+  position: fixed;
+  left: 8px;
+  bottom: 32px;
+}
+
+@media screen and (min-width:700px) {
+
+  /* for screen width >= 700px */
+  .controls {
+    width: 320px;
+    height: max-content;
+    position: fixed;
+    left: 8px;
+    bottom: 32px;
+  }
+
+  .controls.hide {
+    transform: translate(0, 0);
+  }
+
+  .detail {
+    width: 320px;
+    height: max-content;
+    position: fixed;
+    left: 336px;
+    bottom: 32px;
+  }
+}
