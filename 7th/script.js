@@ -91,6 +91,7 @@ $(".change-source").click(function() {
   } else if (window.location.href.search("kt7yvd.coding-pages.com") != -1) {
     hrefer = "https://book-blog.github.io/7th/";
   }
+  window.location.href = hrefer;
 })
 
 // amap
