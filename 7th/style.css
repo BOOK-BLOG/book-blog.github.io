@@ -97,6 +97,31 @@ html, body, #map, #container {
   font-weight: 700;
 }
 
+.list-item .row, .list-item .col, .col h6, .col p {
+  margin: 0;
+  padding: 0;
+}
+
+#confirmed, #confirmed * {
+  color: #d01c00;
+}
+
+#suspected, #suspected * {
+  color: #f1a452;
+}
+
+#dead, #dead * {
+  color: #909090;
+}
+
+#cured, #cured * {
+  color: #00c787;
+}
+
+#confirmedIncr, #suspectedIncr, #deadIncr, #curedIncr {
+  font-size: 12px;
+}
+
 .primary-button {
   height: 28px;
   background-color: var(--button-primary-bg);
@@ -170,6 +195,15 @@ html, body, #map, #container {
 [bg-icon="hospital"] {
   background-color: #e60000;
   background-image: url(./icon/hospital.svg);
+}
+
+[bg-icon="red-cross"] {
+  background-color: #e60000;
+  color: #ffffff;
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 38px;
+  text-align: center;
 }
 
 [bg-icon="protect"] {
@@ -300,12 +334,12 @@ html, body, #map, #container {
   bottom: 32px;
 }
 
-.controls.hide {
-  transform: translate(0, calc(100% + 52px));
-}
-
 .controls.down {
   transform: translate(0, calc(100% - 32px));
+}
+
+.controls.hide {
+  transform: translate(0, calc(100% + 52px));
 }
 
 .detail {
@@ -327,12 +361,12 @@ html, body, #map, #container {
     bottom: 32px;
   }
 
-  .controls.hide {
-    transform: translate(0, 0);
-  }
-
   .controls.down {
     transform: translate(0, calc(100% - 32px));
+  }
+
+  .controls.hide {
+    transform: translate(0, 0);
   }
 
   .detail {

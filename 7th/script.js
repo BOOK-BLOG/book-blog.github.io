@@ -1,10 +1,21 @@
+var currentTime = new Date()
+
 var blankerlCrawler = new XMLHttpRequest();
-blankerlCrawler.open('GET', 'https://lab.isaaclin.cn/nCoV/api/area?latest=1', true);
+blankerlCrawler.open('GET', 'https://lab.isaaclin.cn/nCoV/api/overall', true);
 blankerlCrawler.send();
 blankerlCrawler.onreadystatechange = function() {
   if (blankerlCrawler.readyState == 4 && blankerlCrawler.status == 200) {
+    console.info("%c Got response from: " + blankerlCrawler.responseURL + " ", "color:#00e000;background-color:#d9ffd9;border-radius:16px;padding:initial 4px;");
     var blankerlCrawlerResponse = blankerlCrawler.responseText;
-    console.log(JSON.parse(blankerlCrawlerResponse))
+    blankerlCrawler.result = JSON.parse(blankerlCrawlerResponse);
+    $("#confirmedCount").html(blankerlCrawler.result.results[0].confirmedCount);
+    $("#suspectedCount").html(blankerlCrawler.result.results[0].suspectedCount);
+    $("#deadCount").html(blankerlCrawler.result.results[0].deadCount);
+    $("#curedCount").html(blankerlCrawler.result.results[0].curedCount);
+    $("#confirmedIncr").html("+" + blankerlCrawler.result.results[0].confirmedIncr);
+    $("#suspectedIncr").html("+" + blankerlCrawler.result.results[0].suspectedIncr);
+    $("#deadIncr").html("+" + blankerlCrawler.result.results[0].deadIncr);
+    $("#curedIncr").html("+" + blankerlCrawler.result.results[0].curedIncr);
   }
 };
 
@@ -75,6 +86,8 @@ $(".list-up").click(function() {
 
 $("#hospital-length").html(marker.hospital.marker["length"]);
 
+$("#current-time").html(String(currentTime.getFullYear()) + " 年 " + String(currentTime.getMonth() + 1) + " 月 " + currentTime.getDate() + " 日");
+
 $(".refresh").click(function() {
   location.reload();
 })
@@ -96,7 +109,10 @@ var map = new AMap.Map('map');
 map.on('complete', function() {
   $(".controls").removeClass("hide");
   map.add(marker.hospital.marker);
-  $(".list-item[type]").click(function() {
+  $(".list-item[type=\"hospital\"]").click(function() {
+    $(".controls").addClass("down");
+    $(".list-down").addClass("hide");
+    $(".list-up").removeClass("hide");
     map.setFitView(marker.hospital.marker);
     $("[src=\"./icon/" + $(this).attr("type") + "-marker.png\"]").addClass("active");
     $(this).addClass("active");
