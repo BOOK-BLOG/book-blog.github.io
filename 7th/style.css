@@ -41,10 +41,6 @@ html, body, #map, #container {
   /* Amap's logo & copyright 's z-index = 160 */
 }
 
-.controls.down {
-  transform: translate(0, 100%);
-}
-
 .list {
   padding: 0;
   list-style: none;
@@ -82,11 +78,18 @@ html, body, #map, #container {
 }
 
 .list-item.list-up {
-  height: 32px;
+  height: 64px;
   background-position: center;
   background-repeat: no-repeat;
   background-image: var(--up-icon);
   background-size: 40px;
+}
+
+.list-up.hide, .list-down.hide {
+  opacity: 0;
+  pointer-events: none;
+  padding: 0;
+  height: 0px;
 }
 
 .list-item h6 {
@@ -301,6 +304,10 @@ html, body, #map, #container {
   transform: translate(0, calc(100% + 52px));
 }
 
+.controls.down {
+  transform: translate(0, calc(100% - 32px));
+}
+
 .detail {
   width: calc(100% - 16px);
   height: max-content;
@@ -322,6 +329,10 @@ html, body, #map, #container {
 
   .controls.hide {
     transform: translate(0, 0);
+  }
+
+  .controls.down {
+    transform: translate(0, calc(100% - 32px));
   }
 
   .detail {

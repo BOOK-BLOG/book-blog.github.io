@@ -62,18 +62,15 @@ var marker = {
   protect: []
 };
 
-$(".list-up-down").click(function() {
-  if ($(this).attr("up-down") == "up") {
-    $(this).addClass("list-up");
-    $(this).removeClass("list-down");
-    $(this).attr("up-down", "down");
-    $(".controls").addClass("down");
-  } else {
-    $(this).removeClass("list-up");
-    $(this).addClass("list-down");
-    $(this).attr("up-down", "up");
-    $(".controls").removeClass("down");
-  }
+$(".list-down").click(function() {
+  $(".controls").addClass("down");
+  $(".list-down").addClass("hide");
+  $(".list-up").removeClass("hide");
+})
+$(".list-up").click(function() {
+  $(".controls").removeClass("down");
+  $(".list-up").addClass("hide");
+  $(".list-down").removeClass("hide");
 })
 
 $("#hospital-length").html(marker.hospital.marker["length"]);
