@@ -9,6 +9,10 @@
   "orientation": "portrait",
   "theme_color": "#fff",
   "icons": [{
+    "src": "./img/logo-501.png",
+    "sizes": "501x501",
+    "type": "image/png"
+  }, {
     "src": "./img/logo-origin.png",
     "sizes": "502x501",
     "type": "image/png"
