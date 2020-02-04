@@ -1,11 +1,21 @@
 var currentTime = new Date()
 
+var consoleLogger = function(state, text) {
+  switch (state) {
+    case "success":
+      console.info("%c " + text + " ", "color:#00b700;background-color:#d9ffd9;border-radius:4px;padding:initial 4px;");
+      break;
+    default:
+
+  }
+}
+
 var blankerlCrawler = new XMLHttpRequest();
 blankerlCrawler.open('GET', 'https://lab.isaaclin.cn/nCoV/api/overall', true);
 blankerlCrawler.send();
 blankerlCrawler.onreadystatechange = function() {
   if (blankerlCrawler.readyState == 4 && blankerlCrawler.status == 200) {
-    console.info("%c Got response from: " + blankerlCrawler.responseURL + " ", "color:#00e000;background-color:#d9ffd9;border-radius:16px;padding:initial 4px;");
+    consoleLogger("success", ("Got response from: " + blankerlCrawler.responseURL));
     var blankerlCrawlerResponse = blankerlCrawler.responseText;
     blankerlCrawler.result = JSON.parse(blankerlCrawlerResponse);
     $("#confirmedCount").html(blankerlCrawler.result.results[0].confirmedCount);
@@ -107,6 +117,7 @@ $(".change-source").click(function() {
 // amap
 var map = new AMap.Map('map');
 map.on('complete', function() {
+  consoleLogger("success", "Map is created successfully");
   $(".controls").removeClass("hide");
   map.add(marker.hospital.marker);
   $(".list-item[type=\"hospital\"]").click(function() {
