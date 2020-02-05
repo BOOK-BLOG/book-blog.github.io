@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title id="title-head">7th 2019-nCoV</title>
+  <title id="title-head">7th 疫情地图</title>
   <!-- PWA -->
   <meta name="description" content="2019-nCoV 疫情情况一览。">
   <meta name="format-detection" content="telephone=no">
@@ -54,34 +54,47 @@
         <div class="row text-center">
           <div class="col" id="confirmed">
             <h6>确诊</h6>
-            <p id="confirmedCount">未知</p>
-            <p id="confirmedIncr">未知</p>
+            <p id="confirmedCount">
+              <span class="spinner-border spinner-border-sm" role="status">
+              </span>
+            </p>
+            <p id="confirmedIncr">请稍候</p>
           </div>
           <div class="col" id="suspected">
             <h6>疑似</h6>
-            <p id="suspectedCount">未知</p>
-            <p id="suspectedIncr">未知</p>
+            <p id="suspectedCount">
+              <span class="spinner-border spinner-border-sm" role="status">
+              </span>
+            </p>
+            <p id="suspectedIncr">请稍候</p>
           </div>
           <div class="col" id="dead">
             <h6>死亡</h6>
-            <p id="deadCount">未知</p>
-            <p id="deadIncr">未知</p>
+            <p id="deadCount">
+              <span class="spinner-border spinner-border-sm" role="status">
+              </span>
+            </p>
+            <p id="deadIncr">请稍候</p>
           </div>
           <div class="col" id="cured">
             <h6>治愈</h6>
-            <p id="curedCount">未知</p>
-            <p id="curedIncr">未知</p>
+            <p id="curedCount">
+              <span class="spinner-border spinner-border-sm" role="status">
+              </span>
+            </p>
+            <p id="curedIncr">请稍候</p>
           </div>
         </div>
       </li>
       <li class="list-item description info">
         <p>“接受捐赠的医院” 更新于: 2020 年 2 月 3 日</p>
-        <p>“疫情追踪” 更新于: <span id="current-time"></span> 来自<a href="https://ncov.dxy.cn/ncovh5/view/pneumonia">丁香园</a></p>
+        <p>“疫情追踪” 更新于: <span id="current-time-for-current-data"></span> 来自<a href="https://ncov.dxy.cn/ncovh5/view/pneumonia">丁香园</a></p>
         <p>地图供应商：<a href="http://gaode.com" target="_blank"><img src="https://webapi.amap.com/theme/v1.3/logo@2x.png" alt="高德地图" style="width: 73px; height: 20px"></a></p>
         <p>联系方式：<a href="mailto:book-blog@protonmail.com">book-blog@protonmail.com</a> 或 <a class="primary-button" href="https://github.com/BOOK-BLOG/book-blog.github.io/issues">发布 Issue 以提交漏洞</a></p>
         <button class="refresh">刷新数据</button>
         <button class="change-source primary-button">切换源</button>
-        <!-- <button class="news primary-button">新闻</button> -->
+        <button class="news primary-button" onclick="window.location.href = './news'">新闻与辟谣</button>
+        <!-- <button class="news primary-button" onclick="window.location.href = './about'">关于</button> -->
       </li>
     </ul>
   </div>

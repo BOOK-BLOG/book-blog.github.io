@@ -18,6 +18,7 @@ blankerlCrawler.onreadystatechange = function() {
     consoleLogger("success", ("Got response from: " + blankerlCrawler.responseURL));
     var blankerlCrawlerResponse = blankerlCrawler.responseText;
     blankerlCrawler.result = JSON.parse(blankerlCrawlerResponse);
+    $("#current-time-for-current-data").html(String(currentTime.getFullYear()) + " 年 " + String(currentTime.getMonth() + 1) + " 月 " + currentTime.getDate() + " 日");
     $("#confirmedCount").html(blankerlCrawler.result.results[0].confirmedCount);
     $("#suspectedCount").html(blankerlCrawler.result.results[0].suspectedCount);
     $("#deadCount").html(blankerlCrawler.result.results[0].deadCount);
@@ -95,8 +96,6 @@ $(".list-up").click(function() {
 })
 
 $("#hospital-length").html(marker.hospital.marker["length"]);
-
-$("#current-time").html(String(currentTime.getFullYear()) + " 年 " + String(currentTime.getMonth() + 1) + " 月 " + currentTime.getDate() + " 日");
 
 $(".refresh").click(function() {
   location.reload();
