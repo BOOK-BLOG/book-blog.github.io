@@ -2,38 +2,132 @@
 html, body, #map, #container {
   width: 100%;
   height: 100%;
+  background-color: var(--default-bg);
+  color: var(--default-txt);
 }
 
 * {
   user-select: none;
-  /* color: var(--controls-txt); */
+}
+
+/* Hyper-Mark */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+/* primary button */
+.primary-button {
+  height: 28px;
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-txt);
+  font-weight: 700;
+  padding: 4px 8px;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  outline: none;
+  margin-bottom: 4px;
+  transition: all 0.15s;
+}
+
+.primary-button:hover {
+  background-color: var(--button-primary-bg-hover);
+}
+
+.primary-button:active {
+  background-color: var(--button-primary-bg-active);
+}
+
+.primary-button:focus {
+  outline: none;
+}
+
+/* news card */
+.news {
+  background-color: var(--block-bg);
+  border-radius: 1rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  margin: 1rem 0.5rem;
+}
+
+.news .news-img-fluid {
+  width: 100%;
+  max-height: 320px;
+  object-fit: cover;
+}
+
+.news .news-content {
+  padding: 1rem;
+}
+
+/* chart */
+#chart{
+  margin: 0.25rem;
+  min-height: 320px;
 }
 
 /* :root */
 :root {
-  --controls-bg: rgba(255, 255, 255, 0.8);
-  --controls-bg-hover: rgba(0, 0, 0, 0.05);
-  --controls-bg-active: rgba(0, 0, 0, 0.1);
-  --controls-txt: #000000;
+  --default-bg: #ffffff;
+  --default-txt: #101010;
+  --default-hr: #e0e0e0;
+  --block-bg: #ffffff;
   --button-primary-bg: #bfe4ff;
   --button-primary-bg-hover: #5ebbff;
   --button-primary-bg-active: #57a2da;
   --button-primary-txt: #0066b1;
-  --down-icon: url("./icon/chevron-compact-down-dark.svg");
-  --up-icon: url("./icon/chevron-compact-up-dark.svg");
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --controls-bg: rgba(0, 0, 0, 0.8);
-    --controls-bg-hover: rgba(255, 255, 255, 0.05);
-    --controls-bg-active: rgba(255, 255, 255, 0.1);
-    --controls-txt: #efefef;
+    --default-bg: #101010;
+    --default-txt: #f0f0f0;
+    --default-hr: #202020;
+    --block-bg: #202020;
     --button-primary-bg: #005089;
     --button-primary-bg-hover: #0061a6;
     --button-primary-bg-active: #002743;
     --button-primary-txt: #0093ff;
-    --down-icon: url("./icon/chevron-compact-down-light.svg");
-    --up-icon: url("./icon/chevron-compact-up-light.svg");
   }
+}
+
+.main {
+  width: 100%;
+  max-width: 700px;
+  padding: 4rem 2rem;
+  margin: auto auto;
+}
+
+.main h1 {
+  border-bottom: 1px solid var(--default-hr);
+}
+
+@media screen and (min-width:700px) {
 }

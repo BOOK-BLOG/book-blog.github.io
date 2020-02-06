@@ -361,12 +361,12 @@ html, body, #map, #container {
     bottom: 32px;
   }
 
-  .controls.down {
-    transform: translate(0, calc(100% - 32px));
-  }
-
   .controls.hide {
     transform: translate(0, 0);
+  }
+
+  .controls.down {
+    transform: translate(0, calc(100% - 32px));
   }
 
   .detail {
