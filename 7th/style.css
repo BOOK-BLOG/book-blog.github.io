@@ -1,4 +1,5 @@
 /* overview */
+
 html, body, #map, #container {
   width: 100%;
   height: 100%;
@@ -152,6 +153,29 @@ html, body, #map, #container {
   background-color: transparent;
 }
 
+.list-item.description>.row {
+  margin: 0.25rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  background-color: var(--goto-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px -4px var(--goto-shadow);
+}
+
+.list-item.description>.row>.col {
+  padding: 0.25rem;
+  transition: all 0.15s;
+}
+
+.list-item.description>.row>.col:hover {
+  background-color: var(--goto-bg-hover);
+}
+
+.list-item.description>.row>.col:active {
+  background-color: var(--goto-bg-active);
+}
+
 .list-item.info p {
   font-size: 0.75rem;
   margin-bottom: 0.5rem;
@@ -204,6 +228,7 @@ html, body, #map, #container {
   font-size: 48px;
   line-height: 36px;
   text-align: center;
+  background-image: url(./icon/red-cross.png);
 }
 
 [bg-icon="protect"] {
@@ -297,6 +322,7 @@ html, body, #map, #container {
 }
 
 /* :root */
+
 :root {
   --controls-bg: rgba(255, 255, 255, 0.8);
   --controls-bg-hover: rgba(0, 0, 0, 0.05);
@@ -308,6 +334,10 @@ html, body, #map, #container {
   --button-primary-txt: #0066b1;
   --down-icon: url("./icon/chevron-compact-down-dark.svg");
   --up-icon: url("./icon/chevron-compact-up-dark.svg");
+  --goto-bg: #ffffff;
+  --goto-bg-hover: #efefef;
+  --goto-bg-active: #cfcfcf;
+  --goto-shadow: rgba(0, 0, 0, 0.1)
 }
 
 @media (prefers-color-scheme: dark) {
@@ -322,10 +352,15 @@ html, body, #map, #container {
     --button-primary-txt: #0093ff;
     --down-icon: url("./icon/chevron-compact-down-light.svg");
     --up-icon: url("./icon/chevron-compact-up-light.svg");
+    --goto-bg: #404040;
+    --goto-bg-hover: #383838;
+    --goto-bg-active: #303030;
+    --goto-shadow: rgba(0, 0, 0, 0.5)
   }
 }
 
 /* for screen width < 700px */
+
 .controls {
   width: calc(100% - 16px);
   height: max-content;
@@ -351,7 +386,6 @@ html, body, #map, #container {
 }
 
 @media screen and (min-width:700px) {
-
   /* for screen width >= 700px */
   .controls {
     width: 320px;
@@ -360,15 +394,12 @@ html, body, #map, #container {
     left: 8px;
     bottom: 32px;
   }
-
   .controls.hide {
     transform: translate(0, 0);
   }
-
   .controls.down {
     transform: translate(0, calc(100% - 32px));
   }
-
   .detail {
     width: 320px;
     height: max-content;

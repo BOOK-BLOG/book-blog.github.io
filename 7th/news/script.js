@@ -1,4 +1,4 @@
-var consoleLogger = function(state, text) {
+var consoleLogger = function (state, text) {
     switch (state) {
         case "success":
             console.info("%c " + text + " ", "color:#00b700;background-color:#d9ffd9;border-radius:4px;padding:initial 4px;");
@@ -20,7 +20,7 @@ blankerlCrawlerNews.send();
 
 var chartData;
 
-blankerlCrawler.onreadystatechange = function() {
+blankerlCrawler.onreadystatechange = function () {
     if (blankerlCrawler.readyState == 4 && blankerlCrawler.status == 200) {
         consoleLogger("success", ("Got response from: " + blankerlCrawler.responseURL));
         var blankerlCrawlerResponse = blankerlCrawler.responseText;
@@ -78,35 +78,35 @@ blankerlCrawler.onreadystatechange = function() {
                 type: 'value'
             },
             series: [{
-                    name: '确诊',
-                    data: chartData.confirmed,
-                    type: 'line',
-                    smooth: true
-                },
-                {
-                    name: '重症',
-                    data: chartData.suspected,
-                    type: 'line',
-                    smooth: true
-                },
-                {
-                    name: '疑似',
-                    data: chartData.suspected,
-                    type: 'line',
-                    smooth: true
-                },
-                {
-                    name: '死亡',
-                    data: chartData.dead,
-                    type: 'line',
-                    smooth: true
-                },
-                {
-                    name: '治愈',
-                    data: chartData.cured,
-                    type: 'line',
-                    smooth: true
-                }
+                name: '确诊',
+                data: chartData.confirmed,
+                type: 'line',
+                smooth: true
+            },
+            {
+                name: '重症',
+                data: chartData.serious,
+                type: 'line',
+                smooth: true
+            },
+            {
+                name: '疑似',
+                data: chartData.suspected,
+                type: 'line',
+                smooth: true
+            },
+            {
+                name: '死亡',
+                data: chartData.dead,
+                type: 'line',
+                smooth: true
+            },
+            {
+                name: '治愈',
+                data: chartData.cured,
+                type: 'line',
+                smooth: true
+            }
             ]
         };
         chart.setOption(chartSettings);
@@ -114,7 +114,7 @@ blankerlCrawler.onreadystatechange = function() {
     }
 };
 
-blankerlCrawlerNews.onreadystatechange = function() {
+blankerlCrawlerNews.onreadystatechange = function () {
     if (blankerlCrawlerNews.readyState == 4 && blankerlCrawlerNews.status == 200) {
         consoleLogger("success", ("Got response from: " + blankerlCrawlerNews.responseURL));
         var blankerlCrawlerNewsResponse = blankerlCrawlerNews.responseText;
@@ -124,12 +124,14 @@ blankerlCrawlerNews.onreadystatechange = function() {
         var conditionForWhile = blankerlCrawlerNews.result.results["length"];
         while (conditionForWhile > 0) {
             var resultsCache = blankerlCrawlerNews.result.results[blankerlCrawlerNewsLength - conditionForWhile];
-            var StrEle = "<div><div class=\"news-content\"><h1>" + resultsCache.title + "</h1><p>" + resultsCache.summary + "</p><a class\"primary-button\" href=\"" + resultsCache.sourceUrl + "\">前往 " + resultsCache.infoSource + " 以查看更多</a></div></div>";
-            var Ele = $(StrEle).addClass("news");
-            $("#news-container").append(Ele);
+            var timeCache = new Date();
+            timeCache.setTime(resultsCache.pubDate);
+            timeCacheStr = timeCache.getMonth() + " 月 " + timeCache.getDate() + " 日";
+            var StrEle = "<div><div class=\"news-content\"><h1>" + resultsCache.title + "</h1><p>" + resultsCache.summary + "</p><a class\"primary-button\" href=\"" + resultsCache.sourceUrl + "\">前往 " + resultsCache.infoSource + " 以查看更多</a><a style=\"background-color:transparent;color:inherit;\">发布于 " + timeCacheStr + "</a></div></div>";
+            $("#news-container").append($(StrEle).addClass("news"));
             conditionForWhile--;
         }
-        $("#news-container").append($("<a href=\"http://www.myzaker.com/channel/22068\">前往 ZAKER 频道：直击新冠肺炎疫情</a>").addClass("primary-button"));
+        $("#news-container").append($("<a href=\"http://www.myzaker.com/channel/22068\">前往 ZAKER 频道：直击新冠肺炎疫情</a>").addClass("primary-button").addClass("primary-button-lg"));
         consoleLogger("success", ("News is shown successfully"));
     }
 };
