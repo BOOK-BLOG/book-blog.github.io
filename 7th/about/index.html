@@ -17,7 +17,7 @@
     <!-- <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> -->
     <meta name="apple-mobile-web-app-title" content="BOOK-BLOG">
     <meta name="msapplication-TileImage" content="./img/msapp-tile.png">
-    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-Tilecolor" content="#ffffff">
     <link rel="manifest" href="/7th/index.webmanifest">
     <link rel="manifest" href="/7th/manifest.json">
     <!-- bootstrap -->
@@ -52,6 +52,48 @@
         <h1>关于 7th</h1>
         <p>新型冠状病毒肺炎是可感染人类的冠状病毒中的第七个成员，本网站因此得名。</p>
         <p>我们在本网站中集合了很多关于疫情的信息，如趋势、地图等。</p>
+        <h2>主要特性</h2>
+        <ul>
+            <li>
+                <p>PWA （渐进式 Web 应用）技术，使用默认浏览器添加到主屏幕，即可像软件一般打开。</p>
+            </li>
+            <li>
+                <p>地图视图，清晰展示地点信息。</p>
+            </li>
+            <li>
+                <p>新闻与辟谣，点击主页左下角的“新闻与辟谣”以进入“新闻与辟谣”页面，在此页面中，我们加入了</p>
+                <ul>
+                    <li>疫情趋势，ECharts 动态图表，可视化疫情数据。</li>
+                    <li>疫情新闻，共 10 条，动态更新。</li>
+                </ul>
+            </li>
+            <li>
+                <p>鸣谢名单</p>
+                <ul>
+                    <li>
+                        <p>疫情数据（包括疫情实时数据、疫情新闻、疫情辟谣（未开放）） API：</p>
+                        <ul>
+                            <li>整理和提供 API：@BlankerL（<a href='https://github.com/BlankerL'
+                                    class='url'>https://github.com/BlankerL</a>）</li>
+                            <li>数据提供：丁香医生（<a href='https://ncov.dxy.cn/ncovh5/view/pneumonia'
+                                    class='url'>https://ncov.dxy.cn/ncovh5/view/pneumonia</a>）</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>图表：ECharts（<a href='https://www.echartsjs.com/zh/'
+                                class='url'>https://www.echartsjs.com/zh/</a>）</p>
+                    </li>
+                    <li>
+                        <p>地图供应商：高德地图（<a href='https://lbs.amap.com/' class='url'>https://lbs.amap.com/</a>）</p>
+                    </li>
+                    <li>
+                        <p>网页优化：Bootstrap（<a href='https://getbootstrap.com/' class='url'>https://getbootstrap.com/</a>）
+                        </p>
+                    </li>
+
+                </ul>
+            </li>
+        </ul>
     </div>
     <h1 class="title-bar">了解更多</h1>
     <div class="main">
@@ -66,7 +108,7 @@
                 </div>
             </div>
             <div class="col">
-                <div class="news" style="cursor: default;" onclick="window.location.href = '/7th/about'">
+                <div class="news" style="cursor: default;" onclick="window.location.href = '/7th/news'">
                     <img class="news-img-covered" src="./img/news-bg.png">
                     <div class="news-content news-img-covering">
                         <h2>疫情新闻</h2>

@@ -84,7 +84,6 @@ h6 {
 
 .main {
     width: 100%;
-    max-width: 700px;
     padding: 1rem 2rem;
     margin: auto auto;
 }
@@ -202,10 +201,17 @@ h6 {
     padding: 0.5rem 0.5rem;
 }
 
+.main {
+    max-width: 100%;
+}
+
 @media screen and (min-width:700px) {
     .title-bar {
         text-align: left;
         font-size: 2.5rem;
         padding: 1rem calc(calc(100% - 700px) / 2 + 1rem);
+    }
+    .main {
+        max-width: 700px;
     }
 }
