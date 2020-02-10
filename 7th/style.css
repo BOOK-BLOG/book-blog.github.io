@@ -157,7 +157,8 @@ html, body, #map, #container {
   margin: 0.25rem;
   margin-bottom: 0.5rem;
   text-align: center;
-  background-color: var(--goto-bg);
+  background: linear-gradient(0deg, var(--goto-bg-a), var(--goto-bg-b));
+  /* background-color: var(--goto-bg); */
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 8px 16px -4px var(--goto-shadow);
@@ -334,7 +335,8 @@ html, body, #map, #container {
   --button-primary-txt: #0066b1;
   --down-icon: url("./icon/chevron-compact-down-dark.svg");
   --up-icon: url("./icon/chevron-compact-up-dark.svg");
-  --goto-bg: #ffffff;
+  --goto-bg-a: #ffffff;
+  --goto-bg-b: #eeeeee;
   --goto-bg-hover: #efefef;
   --goto-bg-active: #cfcfcf;
   --goto-shadow: rgba(0, 0, 0, 0.1)
@@ -352,7 +354,8 @@ html, body, #map, #container {
     --button-primary-txt: #0093ff;
     --down-icon: url("./icon/chevron-compact-down-light.svg");
     --up-icon: url("./icon/chevron-compact-up-light.svg");
-    --goto-bg: #404040;
+    --goto-bg-a: #4d4d4d;
+    --goto-bg-b: #404040;
     --goto-bg-hover: #383838;
     --goto-bg-active: #303030;
     --goto-shadow: rgba(0, 0, 0, 0.5)
