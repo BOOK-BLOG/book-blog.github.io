@@ -78,7 +78,7 @@ function createMarker(icon, x, y, title, address, source, name, telephone, type)
 var marker = {
     hospital: {
         marker: [
-            createMarker("./icon/hospital-marker.png", 114.275458, 30.584738, "协和医院", "武汉市江汉区汉口解放大道1277号", "https://news.sina.com.cn/gn/2020-01-30/detail-iimxxste7673100.d.html", "胡秋实", "13707162353", "hospital")
+            // createMarker("./icon/hospital-marker.png", 114.275458, 30.584738, "协和医院", "武汉市江汉区汉口解放大道1277号", "https://news.sina.com.cn/gn/2020-01-30/detail-iimxxste7673100.d.html", "胡秋实", "13707162353", "hospital")
         ]
     },
     protect: []
