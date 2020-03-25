@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <title>book-blog.github.io</title>
+    <link rel="icon" href="logo.png" type="image/x-icon"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        *, :before, :after {
+            box-sizing: border-box;
+        }
+
+        * {
+            /*font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";*/
+        }
+
+        html, body {
+            width: 100%;
+        }
+
+        h1 {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0;
+            padding: 0 16px;
+            max-width: 100%;
+            transition: all 0.5s;
+        }
+
+        .hide {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+<h1 id="title" class="hide">We are building the new official page</h1>
+<script>
+    function titleDisplayer(text) {
+        setTimeout(function () {
+            $("#title").addClass("hide")
+        }, 0)
+        setTimeout(function () {
+            $("#title").html(text)
+        }, 500)
+        setTimeout(function () {
+            $("#title").removeClass("hide")
+        }, 1000)
+    }
+
+    rebuildingText = [
+        "We are building the new official page",
+        "我们正在重新构建主页",
+        "Nous construisons la nouvelle page officielle",
+        "Мы строим новую официальную страницу",
+        "نحن نبني الصفحة الرسمية الجديدة",
+        "Estamos construyendo la nueva página oficial."
+    ]
+
+    order = 1
+
+    function titleReDisplayer(text) {
+        titleDisplayer(rebuildingText[order])
+        if (order < 5) {
+            order++;
+        } else {
+            order = 0;
+        }
+    }
+
+    $("body").ready(function () {
+        setTimeout(function () {
+            $("#title").removeClass("hide")
+        }, 500)
+        setInterval("titleReDisplayer()", 4000)
+    })
+</script>
+</body>
+</html>
