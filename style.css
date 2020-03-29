@@ -1,0 +1,184 @@
+:root {
+    --background-color: #ffffff;
+    --2-background-color: #dfdfdf;
+    --foreground-color: #101010;
+    --2-foreground-color: #808080;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #101010;
+        --2-background-color: #202020;
+        --foreground-color: #efefef;
+        --2-foreground-color: #808080;
+    }
+}
+
+*, :before, :after {
+    box-sizing: border-box;
+}
+
+* {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+html, body {
+    width: 100%;
+}
+
+body {
+    margin: 0;
+    background-color: var(--background-color);
+    color: var(--foreground-color);
+}
+
+nav {
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    text-align: center;
+    margin: 0;
+    padding: 8px;
+}
+
+nav img {
+    height: 56px;
+}
+
+.slide-content {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.slide-content-ctn {
+    text-align: center;
+    width: max-content;
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.5s;
+}
+
+.slide-content-ctn[show="true"] {
+    opacity: 1;
+    pointer-events: initial;
+}
+
+.slide-content-ctn[show="false"] {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.slide-content-ctn.go-up {
+    transform: translate(-50%, calc(-50% - 32px));
+}
+
+.slide-content-ctn.go-down {
+    transform: translate(-50%, calc(-50% + 32px));
+}
+
+.slide-content-txt {
+    margin: 0;
+    padding: 0;
+    font-size: 64px;
+    transition: all 0.5s;
+}
+
+@media screen and (max-width: 600px) {
+    .slide-content-txt {
+        margin: 0;
+        padding: 0;
+        font-size: 32px;
+    }
+}
+
+.slide-content-txt a {
+    color: var(--2-foreground-color);
+}
+
+.slide-bottom-label {
+    color: var(--2-foreground-color);
+    position: fixed;
+    left: 50%;
+    bottom: 8px;
+    transform: translate(-50%, 0);
+}
+
+.slide-bottom-label-ctn {
+    text-align: center;
+    width: max-content;
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    left: 50%;
+    bottom: 8px;
+    transform: translate(-50%, 0);
+    transition: all 0.5s;
+}
+
+@media screen and (max-width: 600px) {
+    .slide-bottom-label-ctn {
+        bottom: 64px;
+    }
+}
+
+.slide-bottom-label-ctn[show="true"] {
+    opacity: 1;
+    pointer-events: initial;
+}
+
+.slide-bottom-label-ctn[show="false"] {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.slide-bottom-label-ctn.go-up {
+    transform: translate(-50%, -8px);
+}
+
+.slide-bottom-label-ctn.go-down {
+    transform: translate(-50%, 8px);
+}
+
+.slide-bottom-label-txt {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+@media screen and (max-width: 600px) {
+    .slide-bottom-label-txt {
+        margin: 0;
+        padding: 0;
+        font-size: 8px;
+    }
+}
+
+.slide-bottom-label-txt a {
+    color: var(--2-foreground-color);
+}
+
+.slide-bottom-label-txt[slide-action="previous"], .slide-bottom-label-txt[slide-action="next"] {
+    text-align: center;
+    font-size: 32px;
+}
+
+@media screen and (max-width: 600px) {
+    .slide-bottom-label-txt[slide-action="previous"] {
+        position: fixed;
+        left: 8px;
+        top: 16px;
+    }
+
+    .slide-bottom-label-txt[slide-action="next"] {
+        position: fixed;
+        right: 8px;
+        top: 16px;
+    }
+}
