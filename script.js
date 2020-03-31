@@ -34,7 +34,7 @@ function windowOnScrollUp() {
 
 function windowOnScrollDown() {
     var activeSlideNum = parseInt($("[show=\"true\"]").attr("slide-num"));
-    if (activeSlideNum < 3) {
+    if (activeSlideNum < 2) {
         activeSlideNum++;
         $(".slide-content-ctn[slide-num=\"" + String(activeSlideNum) + "\"]").addClass("go-down");
         setTimeout(function () {
