@@ -205,7 +205,7 @@ nav img {
 #hero-2 .item > h4:active {
     color: var(--foreground-color);
     text-shadow: 0 0 32px var(--foreground-color);
-    transition: all 0s;
+    transition: all 0.15s;
 }
 
 @media screen and (max-width: 691px) {
