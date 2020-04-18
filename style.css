@@ -1,31 +1,43 @@
 :root {
     --background-color: #ffffff;
+    --1-5-background-color: #fafafb;
     --2-background-color: #dfdfdf;
     --3-background-color: #c7c7c7;
     --4-background-color: #adadad;
-    --background-color-float: rgba(255, 255, 255, 0.5);
+    --background-color-with-opacity-5: rgba(255, 255, 255, 0.5);
     --foreground-color: #101010;
     --2-foreground-color: #808080;
 
     --2-background-color-blue: #2777e8;
     --3-background-color-blue: #0070d7;
-    --2-background-color-blue-float: rgba(39, 119, 232, 0.5);
+    --2-background-color-blue-with-opacity-5: rgba(39, 119, 232, 0.5);
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
         --background-color: #131415;
+        --1-5-background-color: #1a1b1d;
         --2-background-color: #333538;
         --3-background-color: #434447;
         --4-background-color: #56595c;
-        --background-color-float: rgba(19, 20, 21, 0.5);
+        --background-color-with-opacity-5: rgba(19, 20, 21, 0.5);
         --foreground-color: #c3c7cb;
         --2-foreground-color: #a4a9ad;
 
         --2-background-color-blue: #2777e8;
         --3-background-color-blue: #0070d7;
-        --2-background-color-blue-float: rgba(39, 119, 232, 0.5);
+        --2-background-color-blue-with-opacity-5: rgba(39, 119, 232, 0.5);
     }
+}
+
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url("fonts/JetBrainsMono-Regular.ttf");
+}
+
+@font-face {
+    font-family: "JetBrains Mono Medium";
+    src: url("fonts/JetBrainsMono-Medium.ttf");
 }
 
 *, :before, :after {
@@ -33,7 +45,7 @@
 }
 
 * {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    /*font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";*/
     font-family: "JetBrains Mono";
 }
 
@@ -60,7 +72,7 @@ body {
 nav {
     width: 100%;
     height: 64px;
-    background-color: var(--background-color-float);
+    background-color: var(--background-color-with-opacity-5);
     position: fixed;
     margin: 0;
     padding: 8px 32px;
@@ -77,15 +89,18 @@ nav img {
 
 }
 
-.default-btn {
-    background-color: var(--2-background-color);
-    color: var(--foreground-color);
+.default-btn, .blue-btn {
     border: none;
     border-radius: 12px;
     outline: none;
     text-align: center;
     font-size: 16px;
-    padding: 12px 24px;
+    padding: 12px 12px;
+}
+
+.default-btn {
+    background-color: var(--2-background-color);
+    color: var(--foreground-color);
     transition: all 0.15s;
 }
 
@@ -106,12 +121,6 @@ nav img {
 .blue-btn {
     background-color: var(--2-background-color-blue);
     color: #ffffff;
-    border: none;
-    border-radius: 12px;
-    outline: none;
-    text-align: center;
-    font-size: 16px;
-    padding: 12px 24px;
     transition: all 0.5s;
 }
 
@@ -119,7 +128,7 @@ nav img {
     background-color: var(--3-background-color-blue);
     color: #ffffff;
     transform: translateY(-4px);
-    box-shadow: 0 8px 32px var(--2-background-color-blue-float);
+    box-shadow: 0 8px 32px var(--2-background-color-blue-with-opacity-5);
 }
 
 .blue-btn:focus {
@@ -131,38 +140,80 @@ nav img {
     color: #ffffff;
 }
 
-.hero > .row {
+#hero-1 > .row {
     margin: 0;
 }
 
-.hero > .row > .col {
+#hero-1 > .row > .col {
     margin: 128px 16px;
 }
 
-.hero > .row > .col > * {
+#hero-1 > .row > .col > * {
     max-width: 100%;
 }
 
-.hero > .row > .col > .row {
+#hero-1 > .row > .col > .row {
     margin: 0;
 }
 
-.hero > .row > .col > .row > .col {
+#hero-1 > .row > .col > .row > .col {
     padding: 8px;
 }
 
-.hero > .row > .col > .row > .col > button {
+#hero-1 > .row > .col > .row > .col > button {
     max-width: 100%;
-    min-width: 128px;
+    min-width: 145px;
     width: 100%;
     margin-right: 8px;
 }
 
-.test-img {
+.hero-img {
     width: 100%;
     height: 100%;
     object-fit: contain;
 }
 
-@media screen and (max-width: 600px) {
+#hero-2 {
+    background-color: var(--1-5-background-color);
+}
+
+#hero-2 .row {
+    margin: 0px 8px;
+}
+
+#hero-2 .item {
+    height: 64px;
+}
+
+#hero-2 .item > h4 {
+    line-height: 64px;
+    text-align: center;
+    min-width: 200px;
+    height: 100%;
+    margin: 0;
+    cursor: default;
+    user-select: none;
+    transition: all 0.5s;
+}
+
+#hero-2 .item > h4:hover {
+    color: var(--2-foreground-color);
+    text-shadow: 0 0 16px var(--foreground-color);
+    transition: all 0.5s;
+}
+
+#hero-2 .item > h4:active {
+    color: var(--foreground-color);
+    text-shadow: 0 0 32px var(--foreground-color);
+    transition: all 0s;
+}
+
+@media screen and (max-width: 691px) {
+    .hero > .row > .col.auto-disappear {
+        display: none;
+    }
+
+    .hero-img {
+        display: none;
+    }
 }
