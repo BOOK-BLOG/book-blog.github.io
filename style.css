@@ -167,10 +167,20 @@ nav img {
     margin-right: 8px;
 }
 
-.hero-img {
+#hero-1 .hero-img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+}
+
+@media screen and (max-width: 691px) {
+    #hero-1 > .row > .col.auto-disappear {
+        display: none;
+    }
+
+    #hero-1 .hero-img {
+        display: none;
+    }
 }
 
 #hero-2 {
@@ -182,7 +192,20 @@ nav img {
 }
 
 #hero-2 .item {
+    border-radius: 8px;
+    margin: 8px;
     height: 64px;
+    transition: all 0.5s;
+}
+
+#hero-2 .item:hover {
+    background-color: var(--2-background-color);
+    transition: all 0.5s;
+}
+
+#hero-2 .item:active {
+    background-color: var(--3-background-color);
+    transition: all 0.15s;
 }
 
 #hero-2 .item > h4 {
@@ -208,12 +231,6 @@ nav img {
     transition: all 0.15s;
 }
 
-@media screen and (max-width: 691px) {
-    .hero > .row > .col.auto-disappear {
-        display: none;
-    }
-
-    .hero-img {
-        display: none;
-    }
+#hero-3 {
+    background-color: var(--1-5-background-color);
 }
